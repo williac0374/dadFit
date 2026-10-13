@@ -1491,6 +1491,7 @@ if(rom=="top"){
 pos = tick
 if(rep==reps){
 	clearInterval(tempo);
+	sets++
 	room_goto(rest);
 }
 //document.title="subtick: "+subtick+" ,rom: "+rom+" , pos: "+pos;
@@ -1524,6 +1525,13 @@ var sh = segH;
 draw_set_color(0,128,0);
 draw_rectangle(sx,sy-segH*s,segW,(sy-segH*s)-(segH-6),false)
 }
+draw_set_font(font_34)
+if(pos>=10){
+	draw_set_color(0,0,0)
+}else{
+	draw_set_color(0,255,0)
+}
+draw_text(18,18,""+rep+"/"+reps+" reps, "+sets+" sets")
 /*
 for(let s = 0; s<pos; s++){
 var sx = 6
@@ -1633,13 +1641,20 @@ tempo = null
 tick = 10;
 subtick=0;
 duration = 1;
-reps = 2;
-restTime = 20
+reps = 12;
+sets = 0
+restTime = 120
 
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
-
+if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./serviceworker.js').catch((error) => {
+                    console.warn('Service worker registration failed:', error);
+                });
+            });
+        }
 
 
 tu_gameloop = tu_loop;
