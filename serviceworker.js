@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dadFit-cache-v2';
+const CACHE_NAME = 'dadFit-cache-v3';
 const APP_SHELL = ['./', './index.html', './game.js', './manifest.json', './icon.png', './aud/bass.WAV', './aud/block.WAV', './aud/egg.WAV', './aud/go.wav', './aud/heartbeat.wav', './aud/snare.WAV', './img/sprite_4_0.png'];
 
 self.addEventListener('install', (event) => {
